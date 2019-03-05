@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -39,7 +40,25 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                EditText userEditText = getView().findViewById(R.id.edtUser);
+                EditText passwordEditText = getView().findViewById(R.id.edtPassword);
 
+                String user = userEditText.getText().toString().trim();
+                String password = passwordEditText.getText().toString().trim();
+
+                MyAlert myAlert = new MyAlert(getActivity());
+
+
+                if (user.isEmpty() || password.isEmpty()) {
+//                    Have Space
+                    myAlert.normalDialog("Have Space", "Please Fill Every Blank");
+
+                } else {
+//                    No Space
+
+
+
+                }
 
 
 
