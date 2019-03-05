@@ -4,6 +4,7 @@ package masterung.th.in.androidthai.bsruservice;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,10 +56,22 @@ public class MainFragment extends Fragment {
 
                 } else {
 //                    No Space
+                    MyConstant myConstant = new MyConstant();
+                    try {
+
+                        GetUserWhereUserThread getUserWhereUserThread = new GetUserWhereUserThread(getActivity());
+                        getUserWhereUserThread.execute(user, myConstant.getUrlGetUserWhereUser());
+
+                        String json = getUserWhereUserThread.get();
+                        Log.d("5MarchV1", "json = "+ json);
 
 
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
-                }
+
+                }// if
 
 
 
